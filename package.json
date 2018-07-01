@@ -1,12 +1,11 @@
 {
-  "name": "guld-cli",
-  "version": "1.0.0",
-  "description": "Guld Command Line Interface (CLI)",
+  "name": "guld-keys-cli",
+  "version": "0.4.1",
+  "description": "Cryptographic key storage and usage.",
   "bin": {
-    "guld": "./cli.js"
+    "guld-keys": "./cli.js"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha",
     "lint": "eslint --env browser *.js*",
     "fix": "eslint --fix *.js*"
   },
@@ -20,10 +19,15 @@
   "author": "isysd",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.16.0"
+    "commander": "^2.16.0",
+    "gpg-conf": "^0.4.0",
+    "guld-git-config": "^1.1.1",
+    "guld-mail": "^0.2.0",
+    "guld-user": "^0.2.1",
+    "inquirer": "^6.0.0",
+    "keyring-gpg": "^0.2.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
     "eslint": "^5.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-es5": "^1.3.1",
@@ -32,10 +36,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
-    "guld-fs": "^1.0.0",
-    "mocha": "^5.2.0",
-    "pre-commit": "^1.2.2",
-    "window-or-global": "^1.0.1"
+    "pre-commit": "^1.2.2"
   },
   "pre-commit": [
     "lint",
