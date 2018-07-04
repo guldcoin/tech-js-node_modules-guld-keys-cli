@@ -12,6 +12,7 @@ var guldmail
 
 /* eslint-disable no-console */
 program
+  .name('guld-keys')
   .description('Cryptographic key storage and usage.')
   .version(VERSION)
   .option('-s, --secret', 'Perform action on secret keys.')
@@ -62,7 +63,7 @@ async function inquireSecKey (fpr) {
         await setSecureDefaults()
       })
   } catch (e) {
-    var fpr = generate({
+    fpr = generate({
       userIds: [{
         name: guldname,
         email: guldmail
@@ -77,11 +78,11 @@ async function inquireSecKey (fpr) {
   }
 }
 
-function joinPrint(line) {
+function joinPrint (line) {
   console.log(Object.keys(line).map(l => `${l} ${line[l]}`).join('\n'))
 }
 
-async function exportKey() {
+async function exportKey () {
   guldname = guldname || await getName()
   guldmail = guldmail || await getAddress()
   var cfg = await getConfig('merged', guldname)

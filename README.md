@@ -1,11 +1,11 @@
-# guld-cli
+# guld-keys-cli
 
-Universal wrapper for guld commands. Discovers `guld-*` commands and allows them to be called as `guld *` from the main script.
+Cryptographic key storage and usage.
 
 ### Install
 
 ```
-npm i -g guld-cli
+npm i -g guld-keys-cli
 ```
 
 ### Usage
@@ -14,23 +14,23 @@ npm i -g guld-cli
 ##### CLI
 
 ```
-  Usage: guld [options] [command]
+  Usage: guld-keys [options] [command]
 
-  Guld standardized Command Line Interface (CLI) for git.
+  Cryptographic key storage and usage.
 
   Options:
 
-    -V, --version      output the version number
-    -u, --user         The user name to set up.
-    -r, --recipient    The recipient of a message or transaction.
-    -f, --fingerprint  The PGP fingerprint to sign with.
-    -h, --help         output usage information
+    -V, --version       output the version number
+    -s, --secret        Perform action on secret keys.
+    -a, --ascii         ASCII armor any output.
+    -f, --file          The file to read as input.
+    -o, --out           The file to write as output.
+    -h, --help          output usage information
 
   Commands:
 
-    config             Manage git config files the guld way.
-    env                Guld environment detection module.
-    git                Guld standardized Command Line Interface (CLI) for git.
-    help [cmd]         display help for [cmd]
+    init [fingerprint]  Intialize a PGP key with the guld network.
+    list                List PGP keys as fingerprint UID pairs. ("*" for all)
+    import              Import a PGP key.
+    export              Export a PGP key.
 ```
-

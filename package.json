@@ -23,15 +23,15 @@
     "gpg-conf": "^0.4.0",
     "guld-git-config": "^1.1.1",
     "guld-mail": "^0.2.0",
-    "guld-user": "^0.2.1",
+    "guld-user": "^0.3.2",
     "inquirer": "^6.0.0",
-    "keyring-gpg": "^0.2.0"
+    "keyring-gpg": "^0.3.1"
   },
   "devDependencies": {
     "eslint": "^5.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-es5": "^1.3.1",
-    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
