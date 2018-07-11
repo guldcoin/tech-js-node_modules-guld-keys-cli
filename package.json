@@ -1,6 +1,6 @@
 {
   "name": "guld-keys-cli",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Cryptographic key storage and usage.",
   "bin": {
     "guld-keys": "./cli.js"
