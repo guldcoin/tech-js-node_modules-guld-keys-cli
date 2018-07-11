@@ -20,10 +20,10 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.16.0",
-    "gpg-conf": "^0.4.2",
-    "guld-git-config": "^1.2.3",
-    "guld-mail": "^0.2.2",
-    "guld-user": "^0.5.3",
+    "gpg-conf": "^0.4.5",
+    "guld-git-config": "^1.2.4",
+    "guld-mail": "^0.2.3",
+    "guld-user": "^0.5.4",
     "inquirer": "^6.0.0",
     "keyring-gpg": "^0.3.2"
   },
