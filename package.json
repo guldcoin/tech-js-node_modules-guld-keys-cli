@@ -21,9 +21,9 @@
   "dependencies": {
     "commander": "^2.16.0",
     "gpg-conf": "^0.4.5",
-    "guld-git-config": "^1.2.10",
-    "guld-mail": "^0.2.7",
-    "guld-user": "^0.5.8",
+    "guld-git-config": "^1.2.11",
+    "guld-mail": "^0.2.8",
+    "guld-user": "^0.5.9",
     "inquirer": "^6.0.0",
     "keyring-gpg": "^0.3.5"
   },
