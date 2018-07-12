@@ -21,11 +21,11 @@
   "dependencies": {
     "commander": "^2.16.0",
     "gpg-conf": "^0.4.5",
-    "guld-git-config": "^1.2.9",
-    "guld-mail": "^0.2.6",
-    "guld-user": "^0.5.7",
+    "guld-git-config": "^1.2.10",
+    "guld-mail": "^0.2.7",
+    "guld-user": "^0.5.8",
     "inquirer": "^6.0.0",
-    "keyring-gpg": "^0.3.4"
+    "keyring-gpg": "^0.3.5"
   },
   "devDependencies": {
     "eslint": "^5.1.0",
