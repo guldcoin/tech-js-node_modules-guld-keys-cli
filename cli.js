@@ -89,7 +89,7 @@ async function exportKey () {
   else getPublicKey(cfg.user.signingkey).then(console.log)
 }
 
-var cmd = program.args[0]
+var cmd = program.args[0] || undefined
 /* eslint-disable no-console */
 function runner () {
   switch (cmd) {
