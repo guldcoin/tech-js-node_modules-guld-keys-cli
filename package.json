@@ -3,18 +3,21 @@
   "version": "0.5.10",
   "description": "Cryptographic key storage and usage.",
   "bin": {
-    "guld-keys": "./cli.js"
+    "guld-keys": "cli.js"
   },
   "scripts": {
     "lint": "eslint --env browser *.js*",
-    "fix": "eslint --fix *.js*"
+    "fix": "eslint --fix *.js*",
+    "test": "mocha test/*.js",
+    "test:lint": "npm run lint && npm run test"
   },
   "keywords": [
     "guld",
     "security",
     "password",
     "cli",
-    "encryption"
+    "encryption",
+    "node"
   ],
   "author": "isysd",
   "license": "MIT",
@@ -36,7 +39,9 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   },
   "pre-commit": [
     "lint",
@@ -46,7 +51,7 @@
   "engines": {
     "node": ">=7"
   },
-  "homepage": "https://github.com/isysd/tech-js-node_modules-guld-keys-cli#readme",
+  "homepage": "https://guld.tech/cli/guld-keys-cli.html",
   "preferGlobal": true,
-  "repository": "git@github.com:isysd/tech-js-node_modules-guld-keys-cli.git"
+  "repository": "https://bitbucket.org/guld/tech-js-node_modules-guld-keys-cli"
 }

@@ -5,16 +5,17 @@ const { generate, listKeys, listSecretKeys, getPublicKey, getSecretKey } = requi
 const { setupConfig, getConfig } = require('guld-git-config')
 const { setSecureDefaults, setDefaultKey } = require('gpg-conf')
 const program = require('commander')
-const VERSION = require('./package.json').version
+const thispkg = require(`${__dirname}/package.json`)
 const inquirer = require('inquirer')
+const runCLI = require('guld-cli-run')
 var guldname
 var guldmail
 
 /* eslint-disable no-console */
 program
-  .name('guld-keys')
-  .description('Cryptographic key storage and usage.')
-  .version(VERSION)
+  .name(thispkg.name.replace('-cli', ''))
+  .version(thispkg.version)
+  .description(thispkg.description)
   .option('-s, --secret', 'Perform action on secret keys.')
   // .option('-u, --user', 'Use a specific key for the operation.')
   .option('-a, --ascii', 'ASCII armor any output.')
@@ -32,8 +33,6 @@ program
 program
   .command('export')
   .description('Export a PGP key.')
-
-program.parse(process.argv)
 
 async function inquireSecKey (fpr) {
   guldname = guldname || await getName()
@@ -129,3 +128,5 @@ switch (cmd) {
     break
 }
 /* eslint-enable no-console */
+runCLI.bind(program)()
+module.exports = program
