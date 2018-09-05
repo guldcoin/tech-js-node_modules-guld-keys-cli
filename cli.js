@@ -89,11 +89,11 @@ async function exportKey () {
   else getPublicKey(cfg.user.signingkey).then(console.log)
 }
 
-var cmd = program.args.shift()
+var cmd = program.args[0]
 /* eslint-disable no-console */
 switch (cmd) {
   case 'init':
-    if (program.args.length > 0) inquireSecKey(program.args[0])
+    if (program.args.length > 1) inquireSecKey(program.args[1])
     else {
       getConfig().then(cfg => {
         if (cfg && cfg.user && cfg.user.signingkey) inquireSecKey(cfg.user.signingkey)
@@ -104,20 +104,20 @@ switch (cmd) {
     }
     break
   case 'export':
-    if (program.args.length > 0) {
-      if (program.secret) getSecretKey(program.args[0]).then(console.log)
-      else getPublicKey(program.args[0]).then(console.log)
+    if (program.args.length > 1) {
+      if (program.secret) getSecretKey(program.args[1]).then(console.log)
+      else getPublicKey(program.args[1]).then(console.log)
     } else {
       exportKey()
     }
     break
   case 'list':
   default:
-    if (program.args[0] === '*') {
+    if (program.args[1] === '*') {
       if (program.secret) listSecretKeys().then(joinPrint)
       else listKeys().then(joinPrint)
-    } else if (program.args.length > 0) {
-      listKeys(program.args[0]).then(joinPrint)
+    } else if (program.args.length > 1) {
+      listKeys(program.args[1]).then(joinPrint)
     } else {
       getName().then(async guldname => {
         var conf = await getConfig('merged', guldname)
