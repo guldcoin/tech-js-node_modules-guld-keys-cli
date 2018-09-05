@@ -91,42 +91,44 @@ async function exportKey () {
 
 var cmd = program.args[0]
 /* eslint-disable no-console */
-switch (cmd) {
-  case 'init':
-    if (program.args.length > 1) inquireSecKey(program.args[1])
-    else {
-      getConfig().then(cfg => {
-        if (cfg && cfg.user && cfg.user.signingkey) inquireSecKey(cfg.user.signingkey)
-        else {
-          inquireSecKey()
-        }
-      })
-    }
-    break
-  case 'export':
-    if (program.args.length > 1) {
-      if (program.secret) getSecretKey(program.args[1]).then(console.log)
-      else getPublicKey(program.args[1]).then(console.log)
-    } else {
-      exportKey()
-    }
-    break
-  case 'list':
-  default:
-    if (program.args[1] === '*') {
-      if (program.secret) listSecretKeys().then(joinPrint)
-      else listKeys().then(joinPrint)
-    } else if (program.args.length > 1) {
-      listKeys(program.args[1]).then(joinPrint)
-    } else {
-      getName().then(async guldname => {
-        var conf = await getConfig('merged', guldname)
-        if (program.secret) listSecretKeys(conf.user.signingkey).then(joinPrint)
-        else listKeys(conf.user.signingkey).then(joinPrint)
-      })
-    }
-    break
+function runner () {
+  switch (cmd) {
+    case 'init':
+      if (program.args.length > 1) inquireSecKey(program.args[1])
+      else {
+        getConfig().then(cfg => {
+          if (cfg && cfg.user && cfg.user.signingkey) inquireSecKey(cfg.user.signingkey)
+          else {
+            inquireSecKey()
+          }
+        })
+      }
+      break
+    case 'export':
+      if (program.args.length > 1) {
+        if (program.secret) getSecretKey(program.args[1]).then(console.log)
+        else getPublicKey(program.args[1]).then(console.log)
+      } else {
+        exportKey()
+      }
+      break
+    case 'list':
+    default:
+      if (program.args[1] === '*') {
+        if (program.secret) listSecretKeys().then(joinPrint)
+        else listKeys().then(joinPrint)
+      } else if (program.args.length > 1) {
+        listKeys(program.args[1]).then(joinPrint)
+      } else {
+        getName().then(async guldname => {
+          var conf = await getConfig('merged', guldname)
+          if (program.secret) listSecretKeys(conf.user.signingkey).then(joinPrint)
+          else listKeys(conf.user.signingkey).then(joinPrint)
+        })
+      }
+      break
+  }
 }
 /* eslint-enable no-console */
-runCLI.bind(program)()
+runCLI.bind(program)(program.help, runner)
 module.exports = program
